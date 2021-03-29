@@ -13,3 +13,18 @@
     width: 50px;
     height: 50px;
 }
+
+.list-item-icon {
+    font-size: 1.7rem; 
+    color: black
+}
+
+.list-item-alignment {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.list-item-alignment:first-child > span { margin-right: auto; }
+
+.list-item-alignment:last-child  > span { margin-left: auto;  }

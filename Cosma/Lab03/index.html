@@ -35,6 +35,10 @@
       crossorigin="anonymous"
     ></script>
 
+    <script defer src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script defer src="main.js"></script>
+
     <title>Hello, world!</title>
   </head>
 
@@ -44,8 +48,8 @@
         class="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target=".navbarTogglerCollapse"
-        aria-controls="navbarTogglerCollapse"
+        data-target="#asideCollapse"
+        aria-controls="asideCollapse"
         aria-expanded="false"
         aria-label="Toggle Navigation Bar"
       >
@@ -54,16 +58,14 @@
       <a class="navbar-brand" href="#"
         ><i class="bi bi-check2-all"></i> ToDo Manager</a
       >
-      <div class="collapse navbar-collapse navbarTogglerCollapse">
-        <form class="form-inline mx-auto my-1">
-          <input
-            class="form-control"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-        </form>
-      </div>
+      <form class="form-inline mx-auto my-1 d-none d-lg-block">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form>
       <a href="#"
         ><i
           class="bi bi-person-circle light-icon small-icon"
@@ -74,97 +76,50 @@
 
     <div class="container-fluid">
       <div class="row mt-3">
-        <aside class="col-lg-4">
+        <aside class="col-lg-4 collapse d-lg-block" id="asideCollapse">
           <div class="list-group list-group-flush">
             <a
               href="#"
               class="active list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               >All
-              <span class="badge badge-light badge-pill">10</span>
+              <span class="badge badge-light badge-pill" id="badgeAllCount">10</span>
             </a>
             <a
               href="#"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               >Important
-              <span class="badge badge-primary badge-pill">5</span>
+              <span class="badge badge-primary badge-pill" id="badgeImportantCount">5</span>
             </a>
             <a
               href="#"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               >Today
-              <span class="badge badge-primary badge-pill">10</span>
+              <span class="badge badge-primary badge-pill" id="badgeTodayCount">10</span>
             </a>
             <a
               href="#"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               >Next 7 Days
-              <span class="badge badge-primary badge-pill">5</span>
+              <span class="badge badge-primary badge-pill" id="badgeNextSevenDaysCount">5</span>
             </a>
             <a
               href="#"
               class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
               >Private
-              <span class="badge badge-primary badge-pill">10</span>
+              <span class="badge badge-primary badge-pill" id="badgePrivateCount">10</span>
             </a>
           </div>
         </aside>
 
         <main class="col-lg-8">
           <h1 class="mt-1 mb-3">All</h1>
-          <div class="list-group">
-            <a href="#" class="list-group-item list-group-item-action active">
-              <div class="d-flex w-100 justify-content-between">
-                <div class="form-check">
-                  <input
-                    class="form-check-input mt-2"
-                    type="checkbox"
-                    value=""
-                    checked
-                  />
-                  <h5 class="mb-1 ml-3">Activity name</h5>
-                </div>
-                <small class="mt-1">3 days ago</small>
-              </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <div class="form-check">
-                  <input
-                    class="form-check-input mt-2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <h5 class="mb-1 ml-3">Activity name</h5>
-                </div>
-                <i
-                  class="bi-people p-0 m-0"
-                  style="font-size: 1.7rem; color: black"
-                ></i>
-                <small class="mt-1">3 days ago</small>
-              </div>
-            </a>
-            <a href="#" class="list-group-item list-group-item-action">
-              <div class="d-flex w-100 justify-content-between">
-                <div class="form-check">
-                  <input
-                    class="form-check-input mt-2"
-                    type="checkbox"
-                    value=""
-                  />
-                  <h5 class="mb-1 ml-3 text-danger">Activity name</h5>
-                </div>
-                <small class="mt-1">3 days ago</small>
-              </div>
-            </a>
-          </div>
-          <div class="d-flex justify-content-end">
-            <button
-              type="button"
-              class="btn btn-primary rounded-circle m-4 floating-right-button"
-            >
-              <h4 class="p-0 m-0 text-center align-items-center">+</h4>
-            </button>
-          </div>
+          <div class="list-group" id="activities-list-container"></div>
+          <button
+            type="button"
+            class="btn btn-primary rounded-circle m-4 floating-right-button"
+          >
+            <h4 class="p-0 m-0 text-center align-items-center">+</h4>
+          </button>
         </main>
       </div>
     </div>
