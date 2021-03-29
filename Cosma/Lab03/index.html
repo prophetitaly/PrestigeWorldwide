@@ -1,0 +1,132 @@
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+      crossorigin="anonymous"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css"
+    />
+
+    <link rel="stylesheet" href="custom.css" />
+
+    <script
+      defer
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
+
+    <script defer src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+
+    <script defer src="main.js"></script>
+
+    <title>Hello, world!</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#asideCollapse"
+        aria-controls="asideCollapse"
+        aria-expanded="false"
+        aria-label="Toggle Navigation Bar"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand" href="#"
+        ><i class="bi bi-check2-all"></i> ToDo Manager</a
+      >
+      <form class="form-inline mx-auto my-1 d-none d-lg-block">
+        <input
+          class="form-control"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form>
+      <a href="#"
+        ><i
+          class="bi bi-person-circle light-icon small-icon"
+          style="margin-right: 10px"
+        ></i
+      ></a>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row mt-3">
+        <aside class="col-lg-4 collapse d-lg-block" id="asideCollapse">
+          <div class="list-group list-group-flush">
+            <a
+              href="#"
+              id="filtersAllItem"
+              class="active list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >All
+              <span class="badge badge-light badge-pill">0</span>
+            </a>
+            <a
+              href="#"
+              id="filtersImportantItem"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >Important
+              <span class="badge badge-primary badge-pill">0</span>
+            </a>
+            <a
+              href="#"
+              id="filtersTodayItem"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >Today
+              <span class="badge badge-primary badge-pill">0</span>
+            </a>
+            <a
+              href="#"
+              id="filtersNext7DaysItem"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >Next 7 Days
+              <span class="badge badge-primary badge-pill">0</span>
+            </a>
+            <a
+              href="#"
+              id="filtersPrivateItem"
+              class="list-group-item list-group-item-action d-flex justify-content-between align-items-center"
+              >Private
+              <span class="badge badge-primary badge-pill">0</span>
+            </a>
+          </div>
+        </aside>
+
+        <main class="col-lg-8">
+          <h1 id="filterTitleMain" class="mt-1 mb-3">All</h1>
+          <div class="list-group" id="activities-list-container"></div>
+          <button
+            type="button"
+            class="btn btn-primary rounded-circle m-4 floating-right-button"
+          >
+            <h4 class="p-0 m-0 text-center align-items-center">+</h4>
+          </button>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
