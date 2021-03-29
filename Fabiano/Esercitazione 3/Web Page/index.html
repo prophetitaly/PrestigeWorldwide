@@ -22,8 +22,7 @@
         integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
         crossorigin="anonymous"></script>
 
-    <script defer src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script defer src="script.js"></script>
+   
 
     <title>ToDo Manager</title>
 </head>
@@ -53,13 +52,13 @@
     <div class='container-fluid'>
         <div class="row vheight-100 below-nav">
             <aside id="sidebarMenu" class="col-4 d-sm-block bg-light sidebar collapse">
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action active">All</a>
-                    <a href="#" class="list-group-item list-group-item-action">Important</a>
-                    <a href="#" class="list-group-item list-group-item-action">Today</a>
-                    <a href="#" class="list-group-item list-group-item-action">Next 7 Days</a>
-                    <a href="#" class="list-group-item list-group-item-action">Private</a>
-                  </div>
+                <div id="sidebarMenuList" class="list-group list-group-flush">
+                    <a id="sidebarMenuAll" href="#" class="list-group-item list-group-item-action active">All</a>
+                    <a id="sidebarMenuImp" href="#" class="list-group-item list-group-item-action">Important</a>
+                    <a id="sidebarMenuTdy" href="#" class="list-group-item list-group-item-action">Today</a>
+                    <a id="sidebarMenuN7d" href="#" class="list-group-item list-group-item-action">Next 7 Days</a>
+                    <a id="sidebarMenuPvt" href="#" class="list-group-item list-group-item-action">Private</a>
+                </div>
                 <!-- <div class="sidebar-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item bg-success text-white">
@@ -95,33 +94,37 @@
             </aside>
             <main class="col">
                 <h1>All</h1>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox"> Complete Lab 2</td>
-                            <td></td>
-                            <td>
-                                <p class="text-right">Monday 22 March 2021 at 14:30</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox"> Buy some groceries</td>
-                            <td><i class="bi bi-person-square"></i></td>
-                            <td>
-                                <p class="text-right">Today at 14:00</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="text-danger"><input type="checkbox"> Read a good book!</div>
-                            </td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="button" class="btn btn-success fixed-right-bottom"><i
-                        class="bi bi-plus-circle"></i></button>
+                <ul id="displayQuery" class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-t1">
+                                <label class="custom-control-label" for="check-t1">Complete Lab 2</label>
+                            </div>
+                            <small>Monday 22 March 2021 at 14:30</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-t2">
+                                <label class="custom-control-label" for="check-t2">Buy some groceries</label>
+                            </div>
+                            <i class="bi bi-person-square">
+                            </i>
+                            <small>Today at 14:00</small>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="d-flex w-100 justify-content-between">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="check-t3">
+                                <label class="custom-control-label text-danger" for="check-t3">Read a good book!</label>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-success fixed-right-bottom">+</button>
             </main>
 
         </div>
@@ -132,5 +135,13 @@
 
 
 </body>
+
+<script  src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script  src="https://unpkg.com/dayjs@1.8.21/plugin/calendar.js"></script>
+<script >
+    dayjs.extend(window.dayjs_plugin_calendar);
+</script>
+
+<script src="script.js"></script>
 
 </html>
